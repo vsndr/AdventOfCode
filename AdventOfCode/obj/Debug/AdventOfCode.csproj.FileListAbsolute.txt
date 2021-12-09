@@ -1,0 +1,7 @@
+D:\CSharpProjects\AdventOfCode2021\AdventOfCode\AdventOfCode\bin\Debug\AdventOfCode.exe.config
+D:\CSharpProjects\AdventOfCode2021\AdventOfCode\AdventOfCode\bin\Debug\AdventOfCode.exe
+D:\CSharpProjects\AdventOfCode2021\AdventOfCode\AdventOfCode\bin\Debug\AdventOfCode.pdb
+D:\CSharpProjects\AdventOfCode2021\AdventOfCode\AdventOfCode\obj\Debug\AdventOfCode.csprojAssemblyReference.cache
+D:\CSharpProjects\AdventOfCode2021\AdventOfCode\AdventOfCode\obj\Debug\AdventOfCode.csproj.CoreCompileInputs.cache
+D:\CSharpProjects\AdventOfCode2021\AdventOfCode\AdventOfCode\obj\Debug\AdventOfCode.exe
+D:\CSharpProjects\AdventOfCode2021\AdventOfCode\AdventOfCode\obj\Debug\AdventOfCode.pdb
