@@ -8,7 +8,7 @@ namespace AdventOfCode.year2021.day9
     public class Day9Solver
     {
 
-        private const string inputLocation = "D:/CSharpProjects/AdventOfCode2021/AdventOfCode/AdventOfCode/year2021/day9/day9Input.txt";
+        private const string inputLocation = "D:/CSharpProjects/AdventOfCode/AdventOfCode/AdventOfCode/year2021/day9/day9Input.txt";
 
         public int SolvePart1()
         {
@@ -34,7 +34,7 @@ namespace AdventOfCode.year2021.day9
                 return new HashSet<Point>();
             }
 
-            //Checks each of the 4 neightbors whether they belong to the basin
+            //Checks each of the 4 neighbors whether they belong to the basin
             //If a neighbor belongs to the basin, add it to the basin via a recurring call
             var basin = new HashSet<Point>() { currentPoint };
             var row = currentPoint.x;

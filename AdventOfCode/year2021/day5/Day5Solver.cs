@@ -7,7 +7,7 @@ namespace AdventOfCode.day5
 {
     public class Day5Solver
     {
-        private const string inputLocation = "D:/CSharpProjects/AdventOfCode2021/AdventOfCode/AdventOfCode/year2021/day5/day5Input.txt";
+        private const string inputLocation = "D:/CSharpProjects/AdventOfCode/AdventOfCode/AdventOfCode/year2021/day5/day5Input.txt";
 
         //Complexity of this solution went way overboard. Didn't realize in time that every line is horizontal, vertical or diagonal. 
         //Now it determines whether a point falls on any line in 2D-Euclidean space, which is a total overkill for this problem. Running the program makes the computer cry.

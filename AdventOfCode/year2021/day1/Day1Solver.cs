@@ -7,7 +7,7 @@ namespace AdventOfCode.day1
     public class Day1Solver
     {
 
-        private const string inputLocation = "D:/CSharpProjects/AdventOfCode2021/AdventOfCode/AdventOfCode/year2021/day1/day1Input.txt";
+        private const string inputLocation = "D:/CSharpProjects/AdventOfCode/AdventOfCode/AdventOfCode/year2021/day1/day1Input.txt";
 
         public int SolvePart1()
         {

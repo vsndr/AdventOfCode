@@ -5,8 +5,8 @@ namespace AdventOfCode.day4
 {
     public class Day4Solver
     {
-        private const string bingoBoardsTextLocation = "D:/CSharpProjects/AdventOfCode2021/AdventOfCode/AdventOfCode/year2021/day4/day4InputBoards.txt";
-        private const string bingoBoardNumbersLocation = "D:/CSharpProjects/AdventOfCode2021/AdventOfCode/AdventOfCode/year2021/day4/day4InputNumbers.txt";
+        private const string bingoBoardsTextLocation = "D:/CSharpProjects/AdventOfCode/AdventOfCode/AdventOfCode/year2021/day4/day4InputBoards.txt";
+        private const string bingoBoardNumbersLocation = "D:/CSharpProjects/AdventOfCode/AdventOfCode/AdventOfCode/year2021/day4/day4InputNumbers.txt";
 
         public int SolvePart1()
         {
