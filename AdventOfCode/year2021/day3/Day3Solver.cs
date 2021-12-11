@@ -40,7 +40,7 @@ namespace AdventOfCode.day3
             //Check if the number of rows of the matrix is reduced to 1
             if (matrix.GetLength(0) == 1)
             {
-                return MatrixUtils.GetRow(matrix, 0);
+                return TwoDimArrayUtils.GetRow(matrix, 0);
             }
             if (currentColumn < 0)
             {

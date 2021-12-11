@@ -61,8 +61,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="shared\dataStructures\matrix\Integer.cs" />
+    <Compile Include="shared\dataStructures\matrix\Matrix2D.cs" />
+    <Compile Include="shared\dataStructures\matrix\SliceParser.cs" />
     <Compile Include="shared\dataStructures\Point.cs" />
     <Compile Include="shared\utils\ListUtils.cs" />
+    <Compile Include="year2021\day10\Day10Solver.cs" />
+    <Compile Include="year2021\day12\Day12Solver.cs" />
+    <Compile Include="year2021\day11\Day11Solver.cs" />
     <Compile Include="year2021\day1\Day1Solver.cs" />
     <Compile Include="year2021\day2\Day2Solver.cs" />
     <Compile Include="year2021\day3\Day3Solver.cs" />
@@ -76,7 +82,7 @@
     <Compile Include="year2021\day8\Day8Solver.cs" />
     <Compile Include="shared\dataStructures\Line2.cs" />
     <Compile Include="shared\dataStructures\Vector2.cs" />
-    <Compile Include="shared\utils\MatrixUtils.cs" />
+    <Compile Include="shared\utils\TwoDimArrayUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="shared\utils\StringUtils.cs" />
@@ -98,6 +104,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="year2021\day10\day10Input.txt" />
+    <Content Include="year2021\day10\sampleInput.txt" />
+    <Content Include="year2021\day12\day12Input.txt" />
+    <Content Include="year2021\day12\sampleInput.txt" />
+    <Content Include="year2021\day11\day11Input.txt" />
+    <Content Include="year2021\day11\sampleInput.txt" />
     <Content Include="year2021\day1\day1Input.txt" />
     <Content Include="year2021\day2\day2Input.txt" />
     <Content Include="year2021\day3\day3Input.txt" />

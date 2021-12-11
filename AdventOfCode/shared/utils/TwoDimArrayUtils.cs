@@ -2,13 +2,14 @@
 
 namespace AdventOfCode
 {
-    public static class MatrixUtils
+    public static class TwoDimArrayUtils
     {
 
-        public static int[] GetColumn(this int[,] matrix, int columnIdx)
+
+        public static T[] GetColumn<T>(this T[,] matrix, int columnIdx)
         {
             var numRows = matrix.GetLength(0);
-            var result = new int[numRows];
+            var result = new T[numRows];
             for (int i = 0; i < numRows; i++)
             {
                 result[i] = matrix[i, columnIdx];
@@ -17,10 +18,10 @@ namespace AdventOfCode
         }
 
 
-        public static int[] GetRow(this int[,] matrix, int rowIdx)
+        public static T[] GetRow<T>(this T[,] matrix, int rowIdx)
         {
             var numColumns = matrix.GetLength(1);
-            var result = new int[numColumns];
+            var result = new T[numColumns];
             for (int i = 0; i < numColumns; i++)
             {
                 result[i] = matrix[rowIdx, i];
@@ -28,11 +29,11 @@ namespace AdventOfCode
             return result;
         }
 
-        public static int[,] ConvertToMatrix(this List<int[]> arrayList)
+        public static T[,] ConvertToMatrix<T>(this List<T[]> arrayList)
         {
             var rowLength = arrayList.Count;
             var colLength = arrayList[0].Length;
-            var result = new int[rowLength, colLength];
+            var result = new T[rowLength, colLength];
             for (int i = 0; i < rowLength; i++)
             {
                 for (int j = 0; j < colLength; j++)
