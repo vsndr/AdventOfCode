@@ -67,6 +67,7 @@
     <Compile Include="shared\dataStructures\Point.cs" />
     <Compile Include="shared\utils\ListUtils.cs" />
     <Compile Include="year2021\day10\Day10Solver.cs" />
+    <Compile Include="year2021\day13\Day13Solver.cs" />
     <Compile Include="year2021\day12\Day12Solver.cs" />
     <Compile Include="year2021\day11\Day11Solver.cs" />
     <Compile Include="year2021\day1\Day1Solver.cs" />
@@ -106,8 +107,12 @@
   <ItemGroup>
     <Content Include="year2021\day10\day10Input.txt" />
     <Content Include="year2021\day10\sampleInput.txt" />
+    <Content Include="year2021\day12\sampleInput1.txt" />
+    <Content Include="year2021\day12\sampleInput3.txt" />
+    <Content Include="year2021\day13\day13Input.txt" />
+    <Content Include="year2021\day13\sampleInput.txt" />
     <Content Include="year2021\day12\day12Input.txt" />
-    <Content Include="year2021\day12\sampleInput.txt" />
+    <Content Include="year2021\day12\sampleInput2.txt" />
     <Content Include="year2021\day11\day11Input.txt" />
     <Content Include="year2021\day11\sampleInput.txt" />
     <Content Include="year2021\day1\day1Input.txt" />
