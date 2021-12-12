@@ -8,63 +8,47 @@ namespace AdventOfCode.year2021.day11
     {
         private const string inputLocation = "D:/CSharpProjects/AdventOfCode/AdventOfCode/AdventOfCode/year2021/day12/day12Input.txt";
 
-        private const string nonExistingNode = "afsdflkajsd;fikjhasdlf";
-
         public int SolvePart1()
         {
             var nodes = ParseFromFile(inputLocation);
-            var paths = this.GetPaths(nodes, "start", new List<string>(), nonExistingNode);
+            var paths = this.GetPaths(nodes, "start", new List<string>(), false);
             return paths.Count();
         }
 
         public int SolvePart2()
         {
             var nodes = ParseFromFile(inputLocation);
-            var paths = this.GetPaths(nodes, "start", new List<string>(), null);
+            var paths = this.GetPaths(nodes, "start", new List<string>(), true);
             return paths.Count();
         }
 
-        private List<List<string>> GetPaths(Dictionary<string, List<string>> allNodes, string currentNode, List<string> visitedNodes, string allowAdditionalVisitNode)
+        private List<List<string>> GetPaths(Dictionary<string, List<string>> allNodes, string currentNode, List<string> visitedNodes, bool canVisitSmallNodeTwice)
         {
             visitedNodes.Add(currentNode);
 
             if (currentNode == "end")
             {
-                //If we allowed for an additional visit but we haven't used the additional visit, don't return the result as it is a duplicate
-                if (allowAdditionalVisitNode == null || allowAdditionalVisitNode == nonExistingNode)
-                {
-                    return new List<List<string>> { visitedNodes };
-                }
+                return new List<List<string>> { visitedNodes };
             }
 
             var result = new List<List<string>>();
             var connections = allNodes[currentNode];
             foreach (var connection in connections)
             {
-                //Check if the node can be visited
+                //if it's a large node
                 if (this.IsLargeNode(connection))
                 {
-                    //Visit it
-                    result.AddRange(this.GetPaths(allNodes, connection, new List<string>(visitedNodes), allowAdditionalVisitNode));
+                    result.AddRange(this.GetPaths(allNodes, connection, new List<string>(visitedNodes), canVisitSmallNodeTwice));
                 }
-                else
+                //If it's a small node that hasn't been visited before
+                else if (!visitedNodes.Contains(connection))
                 {
-                    //If we can still visit the small node, visit it
-                    if (!visitedNodes.Contains(connection))
-                    {
-                        //Don't allow for another visit
-                        result.AddRange(this.GetPaths(allNodes, connection, new List<string>(visitedNodes), allowAdditionalVisitNode));
-                        //Allow for another visit
-                        if (allowAdditionalVisitNode == null && connection != "start" && connection != "end")
-                        {
-                            result.AddRange(this.GetPaths(allNodes, connection, new List<string>(visitedNodes), string.Copy(connection)));
-                        }
-                    }
-                    //If we can visit the node again
-                    else if (connection == allowAdditionalVisitNode)
-                    {
-                        result.AddRange(this.GetPaths(allNodes, connection, new List<string>(visitedNodes), nonExistingNode));
-                    }
+                    result.AddRange(this.GetPaths(allNodes, connection, new List<string>(visitedNodes), canVisitSmallNodeTwice));
+                }
+                //If it's allowed to visit the node a second time
+                else if (canVisitSmallNodeTwice && connection != "start" && connection != "end")
+                {
+                    result.AddRange(this.GetPaths(allNodes, connection, new List<string>(visitedNodes), false));
                 }
             }
 
