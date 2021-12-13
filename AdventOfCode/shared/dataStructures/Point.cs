@@ -2,8 +2,8 @@
 {
     public struct Point
     {
-        public int x { get; set; }
-        public int y { get; set; }
+        public int x { get; }
+        public int y { get; }
 
         public Point(int x, int y)
         {

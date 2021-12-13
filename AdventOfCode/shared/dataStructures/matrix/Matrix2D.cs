@@ -115,6 +115,68 @@ namespace AdventOfCode.shared.dataStructures
         }
 
         /// <summary>
+        /// Returns a new matrix where the left and right sides are flipped
+        /// </summary>
+        /// <returns></returns>
+        public Matrix2D FlipVertically()
+        {
+            var result = new int[rows, columns];
+            for (int i=0; i<rows; i++)
+            {
+                for (int j=0; j<columns; j++)
+                {
+                    var column = Math.Abs(j - columns) - 1;
+                    result[i, column] = this[i, j];
+                }
+            }
+            return new Matrix2D(result);
+        }
+
+        /// <summary>
+        /// Returns a new matrix where the top and bottom sides are flipped
+        /// </summary>
+        /// <returns></returns>
+        public Matrix2D FlipHorizontally()
+        {
+            var result = new int[rows, columns];
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    var row = Math.Abs(i - rows) - 1;
+                    result[row, j] = this[i, j];
+                }
+            }
+            return new Matrix2D(result);
+        }
+
+
+        public Matrix2D Pad(int topSize = 0, int bottomSize = 0, int leftSize = 0, int rightSize = 0, int padNumber = 0)
+        {
+            var totalRows = rows + topSize + bottomSize;
+            var totalColumns = columns + leftSize + rightSize;
+            var result = new int[totalRows, totalColumns];
+            //Set all numbers to the padding number
+            for (int i=0; i < totalRows; i++)
+            {
+                for (int j = 0; j < totalColumns; j++)
+                {
+                    result[i, j] = padNumber;
+                }
+            }
+            //Overwrite any number that's not part of the padding
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    result[i+topSize, j+leftSize] = this[i, j];
+                }
+            }
+
+            return new Matrix2D(result);
+        }
+
+        /// <summary>
         /// Returns a prettified version of the matrix as a string
         /// </summary>
         /// <returns></returns>
@@ -147,6 +209,30 @@ namespace AdventOfCode.shared.dataStructures
                 }
             }
             return mat;
+        }
+
+        /// <summary>
+        /// Produces a new matrix by adding the two matrixes together.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static Matrix2D operator +(Matrix2D a, Matrix2D b)
+        {
+            if (a.rows != b.rows || a.columns != b.columns)
+            {
+                throw new Exception("Failed to add two matrices. The matrix dimensions are not equal.");
+            }
+
+            var result = new int[a.rows, a.columns];
+            for (int i = 0; i < a.rows; i++)
+            {
+                for (int j = 0; j < a.columns; j++)
+                {
+                    result[i, j] = a[i, j] + b[i, j];
+                }
+            }
+            return new Matrix2D(result);
         }
 
         public static Matrix2D operator ++(Matrix2D mat)
