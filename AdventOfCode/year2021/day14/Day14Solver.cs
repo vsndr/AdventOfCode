@@ -8,8 +8,6 @@ namespace AdventOfCode.year2021.day11
     {
         private const string inputLocation = "D:/CSharpProjects/AdventOfCode/AdventOfCode/AdventOfCode/year2021/day14/day14Input.txt";
 
-        //TODO: This code was rushed and needs some rewriting.
-
         public long SolvePart1()
         {
             (var polymer, var insertions) = ParseFromFile(inputLocation);
@@ -31,23 +29,8 @@ namespace AdventOfCode.year2021.day11
             var result = new Dictionary<char, long>();
             foreach (var pair in allPairs)
             {
-                if (result.TryGetValue(pair.Key.left, out var amount))
-                {
-                    result[pair.Key.left] = amount + pair.Value;
-                }
-                else
-                {
-                    result.Add(pair.Key.left, pair.Value);
-                }
-
-                if (result.TryGetValue(pair.Key.right, out amount))
-                {
-                    result[pair.Key.right] = amount + pair.Value;
-                }
-                else
-                {
-                    result.Add(pair.Key.right, pair.Value);
-                }
+                this.AddOrIncrementPair(result, pair.Key.left, pair.Value);
+                this.AddOrIncrementPair(result, pair.Key.right, pair.Value);
             }
             //Everything is counted twice, except the starting and the ending character, which is counted twice 1 less time
             var keys = new List<char>(result.Keys);
@@ -70,27 +53,24 @@ namespace AdventOfCode.year2021.day11
             var pairs = GetPairs(polymer);
             for(int i=0; i<steps; i++)
             {
-                pairs = GetPairsAfterInsertions(pairs, insertionRules);
+                ApplyInsertionRules(pairs, insertionRules);
             }
             return pairs;
         }
 
-        private Dictionary<(char left, char right), long> GetPairsAfterInsertions(Dictionary<(char left, char right), long> pairs, List<(char left, char right, char middle)> insertionRules)
+        private void ApplyInsertionRules(Dictionary<(char left, char right), long> pairs, List<(char left, char right, char middle)> insertionRules)
         {
-            var insertionRulesDuplicate = new List<(char left, char right, char middle)>(insertionRules);
             var pairsToAdd = new Dictionary<(char left, char right), long>();
             var pairsToRemove = new HashSet<(char left, char right)>();
-            for (int i= insertionRulesDuplicate.Count-1; i>=0; i--)
+            foreach (var insertionRule in insertionRules)
             {
-                var insertionRule = insertionRulesDuplicate[i];
                 var pair = (insertionRule.left, insertionRule.right);
                 if (pairs.TryGetValue(pair, out var amount))
                 {
                     pairsToRemove.Add(pair);
-                    AddPair(pairsToAdd, (pair.left, insertionRule.middle), amount);
-                    AddPair(pairsToAdd, (insertionRule.middle, pair.right), amount);
+                    AddOrIncrementPair(pairsToAdd, (pair.left, insertionRule.middle), amount);
+                    AddOrIncrementPair(pairsToAdd, (insertionRule.middle, pair.right), amount);
                 }
-                insertionRulesDuplicate.RemoveAt(i);
             }
 
             foreach (var pair in pairsToRemove)
@@ -100,21 +80,19 @@ namespace AdventOfCode.year2021.day11
 
             foreach (var pair in pairsToAdd)
             {
-                AddPair(pairs, pair.Key, pair.Value);
+                AddOrIncrementPair(pairs, pair.Key, pair.Value);
             }
-
-            return pairs;
         }
 
-        private void AddPair(Dictionary<(char left, char right), long> pairs, (char left, char right) newPair, long amount)
+        private void AddOrIncrementPair<T>(Dictionary<T, long> pairs, T key, long increment) where T : struct
         {
-            if (pairs.TryGetValue(newPair, out var oldAmount))
+            if (pairs.TryGetValue(key, out var oldAmount))
             {
-                pairs[newPair] = (oldAmount + amount);
+                pairs[key] = oldAmount + increment;
             }
             else
             {
-                pairs.Add(newPair, amount);
+                pairs.Add(key, increment);
             }
         }
 
