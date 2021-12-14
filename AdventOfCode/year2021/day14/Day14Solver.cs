@@ -14,19 +14,19 @@ namespace AdventOfCode.year2021.day11
         {
             (var polymer, var insertions) = ParseFromFile(inputLocation);
             var pairsAfterInsertion = PerformSteps(polymer, insertions, 10);
-            var charCounts = CountCharactersAfterInsertions(pairsAfterInsertion).OrderByDescending(x => x.Value);
-            return charCounts.First().Value - charCounts.Last().Value;      //TODO: Sometimes there's some rounding error occuring here that's giving an answer that's 1 too high
+            var charCounts = CountCharacterOccurences(polymer, pairsAfterInsertion).OrderByDescending(x => x.Value);
+            return charCounts.First().Value - charCounts.Last().Value;
         }
 
         public long SolvePart2()
         {
             (var polymer, var insertions) = ParseFromFile(inputLocation);
             var pairsAfterInsertion = PerformSteps(polymer, insertions, 40);
-            var charCounts = CountCharactersAfterInsertions(pairsAfterInsertion).OrderByDescending(x => x.Value);
-            return charCounts.First().Value - charCounts.Last().Value;      //TODO: Sometimes there's some rounding error occuring here that's giving an answer that's 1 too high
+            var charCounts = CountCharacterOccurences(polymer, pairsAfterInsertion).OrderByDescending(x => x.Value);
+            return charCounts.First().Value - charCounts.Last().Value;
         }
 
-        private Dictionary<char, long> CountCharactersAfterInsertions(Dictionary<(char left, char right), long> allPairs)
+        private Dictionary<char, long> CountCharacterOccurences(string polymer, Dictionary<(char left, char right), long> allPairs)
         {
             var result = new Dictionary<char, long>();
             foreach (var pair in allPairs)
@@ -54,7 +54,7 @@ namespace AdventOfCode.year2021.day11
             foreach (var key in keys)
             {
                 var amount = result[key];
-                if (key == 'N' || key == 'B')
+                if (key == polymer[0] || key == polymer[polymer.Length - 1])
                 {
                     amount++;
                 }
