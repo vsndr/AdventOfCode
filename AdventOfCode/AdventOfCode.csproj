@@ -65,9 +65,9 @@
     <Compile Include="shared\dataStructures\matrix\Matrix2D.cs" />
     <Compile Include="shared\dataStructures\matrix\SliceParser.cs" />
     <Compile Include="shared\dataStructures\Point.cs" />
+    <Compile Include="shared\dataStructures\PriorityQueue.cs" />
     <Compile Include="shared\utils\ListUtils.cs" />
     <Compile Include="year2021\day10\Day10Solver.cs" />
-    <Compile Include="year2021\day15\Path.cs" />
     <Compile Include="year2021\day16\Day16Solver.cs" />
     <Compile Include="year2021\day15\Day15Solver.cs" />
     <Compile Include="year2021\day14\Day14Solver.cs" />
