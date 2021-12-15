@@ -2,13 +2,13 @@
 {
     public struct Point
     {
-        public int x { get; }
-        public int y { get; }
+        public int a { get; }
+        public int b { get; }
 
-        public Point(int x, int y)
+        public Point(int a, int b)
         {
-            this.x = x;
-            this.y = y;
+            this.a = a;
+            this.b = b;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace AdventOfCode.year2021.day9
         {
             var matrix = this.ParseFromFile(inputLocation);
             var lowPoints = this.GetLowPoints(matrix);
-            return lowPoints.Sum(p => matrix[p.x, p.y] + 1);
+            return lowPoints.Sum(p => matrix[p.a, p.b] + 1);
         }
 
         public int SolvePart2()
@@ -29,7 +29,7 @@ namespace AdventOfCode.year2021.day9
         private HashSet<Point> GetBasin(int[,] matrix, Point currentPoint)
         {
             //Add nothing to the basin if the current point is a 9
-            if (matrix[currentPoint.x, currentPoint.y] == 9)
+            if (matrix[currentPoint.a, currentPoint.b] == 9)
             {
                 return new HashSet<Point>();
             }
@@ -37,8 +37,8 @@ namespace AdventOfCode.year2021.day9
             //Checks each of the 4 neighbors whether they belong to the basin
             //If a neighbor belongs to the basin, add it to the basin via a recurring call
             var basin = new HashSet<Point>() { currentPoint };
-            var row = currentPoint.x;
-            var col = currentPoint.y;
+            var row = currentPoint.a;
+            var col = currentPoint.b;
 
             //Add top to basin
             if (row - 1 >= 0 && matrix[row, col] < matrix[row - 1, col])

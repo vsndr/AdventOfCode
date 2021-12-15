@@ -25,13 +25,13 @@ namespace AdventOfCode.year2021.day11
 
         private IEnumerable<Point> Fold(List<Point> points, Point foldingLine)
         {
-            if (foldingLine.x != 0)
+            if (foldingLine.a != 0)
             {
-                return FoldVertically(points, foldingLine.x);
+                return FoldVertically(points, foldingLine.a);
             }
             else
             {
-                return FoldHorizontally(points, foldingLine.y);
+                return FoldHorizontally(points, foldingLine.b);
             }
         }
 
@@ -40,9 +40,9 @@ namespace AdventOfCode.year2021.day11
             var result = new List<Point>();
             foreach (var point in points)
             {
-                if (point.y > axisValue)
+                if (point.b > axisValue)
                 {
-                    result.Add(new Point(point.x, axisValue - (point.y - axisValue)));
+                    result.Add(new Point(point.a, axisValue - (point.b - axisValue)));
                 }
                 else
                 {
@@ -57,9 +57,9 @@ namespace AdventOfCode.year2021.day11
             var result = new List<Point>();
             foreach (var point in points)
             {
-                if (point.x > axisValue)
+                if (point.a > axisValue)
                 {
-                    result.Add(new Point(axisValue - (point.x - axisValue), point.y));
+                    result.Add(new Point(axisValue - (point.a - axisValue), point.b));
                 }
                 else
                 {
@@ -71,8 +71,8 @@ namespace AdventOfCode.year2021.day11
 
         private string GetVisualisation(List<Point> points)
         {
-            var rows = points.Max(p => p.y) + 1;
-            var columns = points.Max(p => p.x) + 1;
+            var rows = points.Max(p => p.b) + 1;
+            var columns = points.Max(p => p.a) + 1;
             var lines = new StringBuilder[rows];
             for (int i=0; i<rows; i++)
             {
@@ -83,8 +83,8 @@ namespace AdventOfCode.year2021.day11
 
             foreach (var point in points)
             {
-                var line = lines[point.y];
-                line[point.x] = '#';
+                var line = lines[point.b];
+                line[point.a] = '#';
             }
 
             return string.Join("\n", lines.Select(x => x.ToString()));

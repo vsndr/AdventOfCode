@@ -61,7 +61,7 @@ namespace AdventOfCode.year2021.day11
                 foreach (var flasher in currentFlashers)
                 {
                     //Increment every neighbor of the flashing octopus by 1
-                    var slice = matrix[$"{flasher.x - 1}:{flasher.x + 1},{flasher.y - 1}:{flasher.y + 1}"];
+                    var slice = matrix[$"{flasher.a - 1}:{flasher.a + 1},{flasher.b - 1}:{flasher.b + 1}"];
                     slice++;
                 }
 
@@ -72,7 +72,7 @@ namespace AdventOfCode.year2021.day11
             //Reset every flasher to 0
             foreach (var flasher in allFlashers)
             {
-                matrix[flasher.x, flasher.y] = 0;
+                matrix[flasher.a, flasher.b] = 0;
             }
 
             return allFlashers.Count();
