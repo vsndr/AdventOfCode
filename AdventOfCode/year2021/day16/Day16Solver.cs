@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AdventOfCode.year2021.day16.ElfPacketDecoder;
+using AdventOfCode.year2021.day16.ElfPacketDecoder.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,24 +14,23 @@ namespace AdventOfCode.year2021.day11
 
         public int SolvePart1()
         {
-            return -1;
+            var hexString = ParseFromFile(inputLocation);
+            var binaryString = ElfPacketUtils.HexToBinary(hexString);
+            var elfPacket = new ElfPacket(ref binaryString);
+            return elfPacket.GetAllVersionNumbers().Sum();
         }
 
-        public int SolvePart2()
+        public long SolvePart2()
         {
-            return -1;
+            var hexString = ParseFromFile(inputLocation);
+            var binaryString = ElfPacketUtils.HexToBinary(hexString);
+            var elfPacket = new ElfPacket(ref binaryString);
+            return elfPacket.GetValue();
         }
 
-        private List<string> ParseFromFile(string fileLocation)
+        private string ParseFromFile(string fileLocation)
         {
-            var allText = System.IO.File.ReadAllText(fileLocation);
-
-            string[] lines = allText.Split(
-                new string[] { Environment.NewLine },
-                StringSplitOptions.None
-            );
-
-            return lines.ToList();
+            return System.IO.File.ReadAllText(fileLocation);
         }
 
     }
