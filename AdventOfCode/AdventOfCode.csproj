@@ -73,6 +73,7 @@
     <Compile Include="year2021\day16\ElfPacketDecoder\OperatorPacket.cs" />
     <Compile Include="year2021\day16\ElfPacketDecoder\PacketBody.cs" />
     <Compile Include="year2021\day16\ElfPacketDecoder\Utils\ElfPacketUtils.cs" />
+    <Compile Include="year2021\day18\Day18Solver.cs" />
     <Compile Include="year2021\day17\Day17Solver.cs" />
     <Compile Include="year2021\day16\Day16Solver.cs" />
     <Compile Include="year2021\day15\Day15Solver.cs" />
@@ -119,6 +120,8 @@
     <Content Include="year2021\day10\sampleInput.txt" />
     <Content Include="year2021\day12\sampleInput1.txt" />
     <Content Include="year2021\day12\sampleInput3.txt" />
+    <Content Include="year2021\day18\day18Input.txt" />
+    <Content Include="year2021\day18\sampleInput.txt" />
     <Content Include="year2021\day17\day17Input.txt" />
     <Content Include="year2021\day17\sampleInput.txt" />
     <Content Include="year2021\day16\day16Input.txt" />
