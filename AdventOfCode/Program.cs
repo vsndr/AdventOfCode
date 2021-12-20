@@ -17,7 +17,7 @@ namespace AdventOfCode
     {
         public static void Main(string[] args)
         {
-            var solver = new Day18Solver();
+            var solver = new Day19Solver();
             var solution = solver.SolvePart2();
 
             System.Diagnostics.Debug.WriteLine(solution);

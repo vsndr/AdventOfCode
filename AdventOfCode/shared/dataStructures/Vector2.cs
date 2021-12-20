@@ -5,8 +5,8 @@ namespace AdventOfCode.shared.dataStructures
     public struct Vector2
     {
 
-        public float x { get; set; }
-        public float y { get; set; }
+        public float x { get; private set; }
+        public float y { get; private set; }
 
         public static readonly Vector2 Zero = new Vector2(0, 0);
 

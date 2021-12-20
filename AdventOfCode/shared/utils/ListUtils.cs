@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdventOfCode.shared.utils
 {
@@ -49,5 +50,20 @@ namespace AdventOfCode.shared.utils
 
             throw new Exception("No item was found that meets the criterium.");
         }
+
+        /// <summary>
+        /// Finds the intersection between lists without removing duplicate values (which Linq's Intersect() method does)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> Supersect<T>(this IEnumerable<T> a, ICollection<T> b)
+        {
+            var temp = new List<T>(b);
+            return a.Where(temp.Remove);
+        }
+              
+
     }
 }
