@@ -85,21 +85,21 @@ namespace AdventOfCode.year2021.day21
         private List<(int diceTotal, int frequency)> GetTriple3SidedDiceDistribution()
         {
             //With a 3-sided die, you have 3*3*3=27 possibilities, but only 7 real outcomes:
-            //3     - 1/27 chance
-            //4     - 3/27 chance
-            //5     - 6/27 chance
-            //6     - 7/27 chance
-            //7     - 6/27 chance
-            //8     - 3/27 chance
-            //9     - 1/27 chance
             return new List<(int total, int frequency)>
             {
+                //3     - 1/27 chance
                 (3, 1),
+                //4     - 3/27 chance
                 (4, 3),
+                //5     - 6/27 chance
                 (5, 6),
+                //6     - 7/27 chance
                 (6, 7),
+                //7     - 6/27 chance
                 (7, 6),
+                //8     - 3/27 chance
                 (8, 3),
+                //9     - 1/27 chance
                 (9, 1),
             };
         }
@@ -125,14 +125,6 @@ namespace AdventOfCode.year2021.day21
                     hash = hash * 23 + p2Position.GetHashCode();
                     hash = hash * 23 + isP1ActivePlayer.GetHashCode();
                     return hash;
-
-                    //var result = 0;
-                    //result = (result * 397) ^ p1Score;
-                    //result = (result * 397) ^ p2Score;
-                    //result = (result * 397) ^ p1Position;
-                    //result = (result * 397) ^ p2Position;
-                    //result = (result * 397) ^ (isP1ActivePlayer? 1 : 0);
-                    //return result;
                 }
             }
 
