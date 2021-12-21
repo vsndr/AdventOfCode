@@ -46,7 +46,7 @@ namespace AdventOfCode.year2021.day11
         public long SolvePart2()
         {
             var diracDice = new DiracDice();
-            (var p1Wins, var p2Wins) = diracDice.CountGamesWon(7, 4);
+            (var p1Wins, var p2Wins) = diracDice.CountGamesWon(P1_START, P2_START);
             return Math.Max(p1Wins, p2Wins);
         }
 
