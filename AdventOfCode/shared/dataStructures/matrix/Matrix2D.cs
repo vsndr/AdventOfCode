@@ -90,6 +90,10 @@ namespace AdventOfCode.shared.dataStructures
             return result;
         }
 
+        /// <summary>
+        /// Returns the total number of elements in this matrix, i.e. rows * columns
+        /// </summary>
+        /// <returns></returns>
         public int GetSize()
         {
             return this.rows * this.columns;
@@ -180,22 +184,59 @@ namespace AdventOfCode.shared.dataStructures
         /// Returns a prettified version of the matrix as a string
         /// </summary>
         /// <returns></returns>
-        public string PrettyPrint()
+        public string PrettyPrint(int? paddingWidth = null)
         {
             var result = new StringBuilder();
             var largestNumber = this.GetMax();
-            var mostNumberOfDigits = (int) Math.Log10(largestNumber);
+            var mostNumberOfDigits = 1;
+            if (largestNumber >= 10)
+            {
+                mostNumberOfDigits = (int)Math.Log10(largestNumber);
+            }
 
+            var padding = paddingWidth.HasValue ? paddingWidth.Value : 2;
 
             for (int i = 0; i < this.rows; i++)
             {
                 for (int j = 0; j < this.columns; j++)
                 {
-                    result.Append(this.internalMatrix[i, j].ToString().PadLeft(mostNumberOfDigits + 2));
+                    result.Append(this.internalMatrix[i, j].ToString().PadLeft(mostNumberOfDigits + padding));
                 }
                 result.AppendLine();
             }
             return result.ToString();
+        }
+
+        public Matrix2D Clone()
+        {
+            var array = this.As2DArray();
+            return new Matrix2D(array);
+        }
+
+        public int[,] As2DArray()
+        {
+            var result = new int[this.rows, this.columns];
+            for (int i = 0; i < this.rows; i++)
+            {
+                for (int j = 0; j < this.columns; j++)
+                {
+                    result[i, j] = this[i, j];
+                }
+            }
+            return result;
+        }
+
+        public int[] Flatten()
+        {
+            var result = new int[this.rows * this.columns];
+            for (int i=0; i< this.rows; i++)
+            {
+                for (int j=0; j<this.columns; j++)
+                {
+                    result[i * this.rows + j] = this[i, j];
+                }
+            }
+            return result;
         }
 
 

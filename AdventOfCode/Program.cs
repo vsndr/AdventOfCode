@@ -10,6 +10,7 @@ using AdventOfCode.shared.dataStructures;
 using AdventOfCode.year2021.day10;
 using AdventOfCode.year2021.day11;
 using AdventOfCode.year2021.day9;
+using System.Linq;
 
 namespace AdventOfCode
 {
@@ -17,7 +18,7 @@ namespace AdventOfCode
     {
         public static void Main(string[] args)
         {
-            var solver = new Day19Solver();
+            var solver = new Day21Solver();
             var solution = solver.SolvePart2();
 
             System.Diagnostics.Debug.WriteLine(solution);
