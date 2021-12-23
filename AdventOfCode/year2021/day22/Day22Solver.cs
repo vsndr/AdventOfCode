@@ -25,7 +25,6 @@ public class Day22Solver
     {
         var boxSplits = new List<Box3D>();
         boxSplits.Add(boxCommands[0].box);
-        var bla = boxSplits.Sum(x => x.GetSize());
         for (int i=1; i<boxCommands.Count; i++)
         {
             var boxCommand = boxCommands[i];
@@ -38,8 +37,6 @@ public class Day22Solver
             {
                 boxSplits = boxSplits.SelectMany(x => x.RemoveFromBox(boxCommand.box)).ToList();
             }
-
-            bla = boxSplits.Sum(x => x.GetSize());
         }
 
         return boxSplits;
