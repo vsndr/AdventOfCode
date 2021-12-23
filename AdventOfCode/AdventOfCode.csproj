@@ -78,6 +78,8 @@
     <Compile Include="year2021\day19\Scanner.cs" />
     <Compile Include="year2021\day19\ScannerGroup.cs" />
     <Compile Include="year2021\day21\DiracDice.cs" />
+    <Compile Include="year2021\day22\Box3D.cs" />
+    <Compile Include="year2021\day23\Day23Solver.cs" />
     <Compile Include="year2021\day22\Day22Solver.cs" />
     <Compile Include="year2021\day21\Day21Solver.cs" />
     <Compile Include="year2021\day20\Day20Solver.cs" />
@@ -129,6 +131,10 @@
     <Content Include="year2021\day10\sampleInput.txt" />
     <Content Include="year2021\day12\sampleInput1.txt" />
     <Content Include="year2021\day12\sampleInput3.txt" />
+    <Content Include="year2021\day22\sampleInput3.txt" />
+    <Content Include="year2021\day22\sampleInput2.txt" />
+    <Content Include="year2021\day23\day23Input.txt" />
+    <Content Include="year2021\day23\sampleInput.txt" />
     <Content Include="year2021\day22\day22Input.txt" />
     <Content Include="year2021\day22\sampleInput.txt" />
     <Content Include="year2021\day21\day21Input.txt" />

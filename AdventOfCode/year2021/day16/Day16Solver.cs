@@ -1,37 +1,30 @@
 ﻿using AdventOfCode.year2021.day16.ElfPacketDecoder;
 using AdventOfCode.year2021.day16.ElfPacketDecoder.Utils;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AdventOfCode.year2021.day11
+public class Day16Solver
 {
-    public class Day16Solver
+    private const string inputLocation = "D:/CSharpProjects/AdventOfCode/AdventOfCode/AdventOfCode/year2021/day16/day16Input.txt";
+
+    public int SolvePart1()
     {
-        private const string inputLocation = "D:/CSharpProjects/AdventOfCode/AdventOfCode/AdventOfCode/year2021/day16/day16Input.txt";
-
-        public int SolvePart1()
-        {
-            var hexString = ParseFromFile(inputLocation);
-            var binaryString = ElfPacketUtils.HexToBinary(hexString);
-            var elfPacket = new ElfPacket(ref binaryString);
-            return elfPacket.GetAllVersionNumbers().Sum();
-        }
-
-        public long SolvePart2()
-        {
-            var hexString = ParseFromFile(inputLocation);
-            var binaryString = ElfPacketUtils.HexToBinary(hexString);
-            var elfPacket = new ElfPacket(ref binaryString);
-            return elfPacket.GetValue();
-        }
-
-        private string ParseFromFile(string fileLocation)
-        {
-            return System.IO.File.ReadAllText(fileLocation);
-        }
-
+        var hexString = ParseFromFile(inputLocation);
+        var binaryString = ElfPacketUtils.HexToBinary(hexString);
+        var elfPacket = new ElfPacket(ref binaryString);
+        return elfPacket.GetAllVersionNumbers().Sum();
     }
+
+    public long SolvePart2()
+    {
+        var hexString = ParseFromFile(inputLocation);
+        var binaryString = ElfPacketUtils.HexToBinary(hexString);
+        var elfPacket = new ElfPacket(ref binaryString);
+        return elfPacket.GetValue();
+    }
+
+    private string ParseFromFile(string fileLocation)
+    {
+        return System.IO.File.ReadAllText(fileLocation);
+    }
+
 }

@@ -105,7 +105,7 @@ namespace AdventOfCode.year2021.day21
         }
 
 
-        private class GameState : IEquatable<GameState>
+        private struct GameState : IEquatable<GameState>
         {
             public int p1Score;
             public int p2Score;
